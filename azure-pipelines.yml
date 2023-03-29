@@ -43,6 +43,9 @@ stages:
       vmImage: $(vmImageName)
     steps:
     - script: |
+    npm install
+    npm run build
+    npm test
         sudo update-alternatives --set php /usr/bin/php$(phpVersion)
         sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
         sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
@@ -50,7 +53,7 @@ stages:
         sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
         php -version
       workingDirectory: $(rootFolder)
-      displayName: 'Use PHP version $(phpVersion)'
+      displayName: 'npm install, build, and test + Use PHP version $(phpVersion)'
 
     - script: composer install --no-interaction --prefer-dist
       workingDirectory: $(rootFolder)
