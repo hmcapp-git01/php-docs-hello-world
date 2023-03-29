@@ -1,5 +1,5 @@
 # PHP as Linux Web App on Azure
-- task: AzureWebApp@1
+task: AzureWebApp@1
   inputs:
     azureSubscription: 'Azure subscription 1 (0951a7cc-f913-4848-98fa-66f85381c87c)'
     appType: 'webAppLinux'
@@ -14,7 +14,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/php
 
 trigger:
-- master
+master
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
